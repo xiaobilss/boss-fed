@@ -22,7 +22,7 @@
             <i class="el-icon-location"></i>
             <span>菜单管理</span>
           </el-menu-item>
-          <el-menu-item index="resource">
+          <el-menu-item index="/resource">
             <i class="el-icon-location"></i>
             <span>资源管理</span>
           </el-menu-item>

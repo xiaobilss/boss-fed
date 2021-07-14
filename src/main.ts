@@ -7,6 +7,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 加载全局样子
 import './styles/index.scss'
+// dayjs
+import './plugins/dayjs'
 
 Vue.use(ElementUI)
 
