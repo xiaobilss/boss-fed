@@ -31,3 +31,12 @@ export const delRole = (id: string | number) => {
     url: `/boss/role/${id}`
   })
 }
+
+// 查询
+export const getRolePages = (data: any) => {
+  return request({
+    method: 'POST',
+    url: 'boss/role/getRolePages',
+    data
+  })
+}

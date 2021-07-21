@@ -2,9 +2,9 @@
   <div>
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-       <el-form ref="form" :model="form" label-width="80px">
-        <el-form-item label="活动名称">
-          <el-input v-model="form.name"></el-input>
+       <el-form ref="formData" :model="formData" label-width="80px">
+        <el-form-item label="活动名称" prop="name">
+          <el-input v-model="formData.name"></el-input>
         </el-form-item>
          <el-form-item>
           <el-button type="primary" @click="submitForm">查询搜索</el-button>
@@ -86,9 +86,10 @@
 </template>
 
 <script lang="ts">
-import { getAllRole, delRole } from '@/services/role'
+import { getAllRole, delRole, getRolePages } from '@/services/role'
 import CreateOrEdit from './CreateOrEdit.vue'
 import Vue from 'vue'
+import { Form } from 'element-ui'
 
 export default Vue.extend({
   name: 'RoleList',
@@ -97,7 +98,7 @@ export default Vue.extend({
   },
   data () {
     return {
-      form: {
+      formData: {
         name: ''
       },
       roleList: [],
@@ -117,11 +118,18 @@ export default Vue.extend({
         this.roleList = data.data
       }
     },
-    submitForm () {
-      this.$message.info('submitForm')
+    async submitForm () {
+      // this.$message.info('submitForm')
+      const { data } = await getRolePages(this.formData)
+      console.log('getRolePages => ', data)
+      if (data.code === '000000') {
+        this.$message.success(data.mesg)
+        // this.roleList = []
+        this.roleList = data.data.records
+      }
     },
     resetForm () {
-      this.$message.info('resetForm')
+      (this.$refs.formData as Form).resetFields()
     },
     handleEdit (item : any) {
       this.roleId = item.id
@@ -154,7 +162,8 @@ export default Vue.extend({
       })
     },
     distributionResources (item: any) {
-      console.log(item)
+      // console.log(item)
+      this.$message.info('distributionResources')
     }
   }
 })

@@ -27,3 +27,36 @@ export const userInfo = () => {
     // }
   })
 }
+
+// 用户管理
+export const userList = (data: any) => {
+  return request({
+    method: 'POST',
+    url: 'boss/user/getUserPages',
+    data
+  })
+}
+
+export const getAllRole = () => {
+  return request({
+    method: 'GET',
+    url: 'boss/role/all'
+  })
+}
+
+// 给用户分配角色
+export const allocateUserRoles = (data: any) => {
+  return request({
+    method: 'POST',
+    url: 'boss/role/allocateUserRoles',
+    data
+  })
+}
+
+// 查询用户角色
+export const getUserRole = (userId: string | number) => {
+  return request({
+    method: 'GET',
+    url: `boss/role/user/${userId}`
+  })
+}
