@@ -1,0 +1,9 @@
+{
+	"app": [
+		{
+			"name": "BossFed",
+			"script": "npm",
+			"args": "serve"
+		}
+	]
+}
