@@ -16,6 +16,7 @@ app.use(
     changeOrigin: true
   })
 );
+
 app.use(
   "/front",
   createProxyMiddleware({
