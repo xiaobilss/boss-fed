@@ -50,7 +50,7 @@ jobs:
                   password: ${{ secrets.PASSWORD }}
                   port: ${{ secrets.PORT }}
                   script: |
-                      cd /root/fed
+                      cd /root/boss-fed
                       wget https://github.com/xiaobilss/boss-fed/releases/latest/download/release.tgz -O release.tgz
                       tar zxvf release.tgz
                       npm install --production
