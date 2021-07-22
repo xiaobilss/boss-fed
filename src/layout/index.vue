@@ -25,7 +25,6 @@ export default Vue.extend({
     AppAside,
     AppHeader
   }
-
 })
 </script>
 

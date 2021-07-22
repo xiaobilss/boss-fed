@@ -24,7 +24,6 @@ app.use(
     changeOrigin: true
   })
 );
-
 app.listen(3000, () => {
   console.log("running ...");
 });
