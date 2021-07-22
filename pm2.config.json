@@ -1,5 +1,5 @@
 {
-	"app": [
+	"apps": [
 		{
 			"name": "BossFed",
 			"script": "npm",
